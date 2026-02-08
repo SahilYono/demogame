@@ -1,16 +1,14 @@
+using TMPro;
 using UnityEngine;
 
 public class ScoreBoard : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] TMP_Text scoreboardText;
+    int score = 0;
 
-    // Update is called once per frame
-    void Update()
+    public void IncreaseScore (int amount)
     {
-        
+        score += amount;
+        scoreboardText.text = score.ToString();
     }
 }
