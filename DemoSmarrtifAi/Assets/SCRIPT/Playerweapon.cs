@@ -17,7 +17,6 @@ public class Playerweapon : MonoBehaviour
     }
 
     private void Update()
-
     {
         ProcessFiring();
         MoveCrosshair();
