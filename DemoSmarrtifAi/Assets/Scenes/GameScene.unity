@@ -267,6 +267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 73014000}
+  - component: {fileID: 73014001}
   m_Layer: 0
   m_Name: fixed enemy
   m_TagString: Untagged
@@ -296,6 +297,18 @@ Transform:
   - {fileID: 416948403}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &73014001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73013999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 341e02de9afdfdc4c8b714c651465ea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CMProblemSolving.L1000_ScenarioToDo.Enemy
 --- !u!1001 &81201299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2705,14 +2718,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 73014000}
     m_Modifications:
-    - target: {fileID: 6361781976277520302, guid: e717bfc6ef9a16644bbcc8786aefe74f, type: 3}
-      propertyPath: DestroVFX
-      value: 
-      objectReference: {fileID: 8975688435204700667, guid: 74a265553dc990044bd940d1dd5b496f, type: 3}
-    - target: {fileID: 6361781976277520302, guid: e717bfc6ef9a16644bbcc8786aefe74f, type: 3}
-      propertyPath: scoreValue
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 8568025540701161316, guid: e717bfc6ef9a16644bbcc8786aefe74f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 439
