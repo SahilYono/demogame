@@ -7,7 +7,23 @@ public class HealthBar : MonoBehaviour
 
 
         [SerializeField] private Image barImage;
-        [SerializeField] private Enemy1 healthSystem;
+        [SerializeField] private enemy enemy;
 
+    private void Start()
+    {
+        enemy.OnHealthAmountChanged += Enemy_OnHealthAmountChanged;
+        UpdateHealthBar();
+
+    }
+
+    private void Enemy_OnHealthAmountChanged(object sender, System.EventArgs e)
+    {
+        UpdateHealthBar();
+    }
+
+    private void UpdateHealthBar()
+    {
+        barImage.fillAmount = enemy.GetHealthAmount();
+    }
 
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class enemy : MonoBehaviour
@@ -10,6 +11,7 @@ public class enemy : MonoBehaviour
 
     ScoreBoard scoreBoard;
 
+    public event EventHandler OnHealthAmountChanged;
 
     void Start()
     {
@@ -60,7 +62,7 @@ public class enemy : MonoBehaviour
 
     public float GetHealthAmount()
     {
-        return healthAmount;
+        return (float)healthAmount / healAmountMax;
     }
 
 }

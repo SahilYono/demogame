@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barImage: {fileID: 1891823990795178830}
-  healthSystem: {fileID: 0}
+  enemy: {fileID: 0}
 --- !u!1 &5850608158624523389
 GameObject:
   m_ObjectHideFlags: 0
