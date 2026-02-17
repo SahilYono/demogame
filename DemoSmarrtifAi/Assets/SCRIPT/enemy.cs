@@ -48,6 +48,7 @@ public class enemy : MonoBehaviour
             Destroy(this.gameObject);
             healthAmount = 0;
         }
+        OnHealthAmountChanged?.Invoke(this, EventArgs.Empty);
     }
     //FOR FURTHER IMPLEMENTATION OF HEALING SYSTEM
 
