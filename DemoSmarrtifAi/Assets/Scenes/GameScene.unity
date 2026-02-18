@@ -402,7 +402,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1891823990795178830, guid: a4a6fe946b1f692449acdcf5ba8b84be, type: 3}
       propertyPath: m_FillAmount
-      value: 0.78
+      value: 0.62
       objectReference: {fileID: 0}
     - target: {fileID: 4873118257938769970, guid: a4a6fe946b1f692449acdcf5ba8b84be, type: 3}
       propertyPath: m_Name
@@ -410,7 +410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4873118257938769970, guid: a4a6fe946b1f692449acdcf5ba8b84be, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5400666657184314803, guid: a4a6fe946b1f692449acdcf5ba8b84be, type: 3}
       propertyPath: enemy
