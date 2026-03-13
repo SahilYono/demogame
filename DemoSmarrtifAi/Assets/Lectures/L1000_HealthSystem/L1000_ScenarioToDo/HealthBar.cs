@@ -7,6 +7,7 @@ public class HealthBar : MonoBehaviour
 
 
         [SerializeField] private Image barImage;
+    //unknown type
         [SerializeField] private enemy enemy;
 
     private void Start()
