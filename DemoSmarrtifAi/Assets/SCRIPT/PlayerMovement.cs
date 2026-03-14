@@ -7,10 +7,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float xRange = 8f;
     [SerializeField] float yRange = 4f;
 
-    public Transform targetPosition;
-    public GameObject panelToOpen;
-    private bool hasReachedTarget = false;
-
     Vector2 movement;
 
 
@@ -33,25 +29,6 @@ public class PlayerMovement : MonoBehaviour
 
 
         transform.localPosition = new Vector3(clampedXPos,clampedYPos , 0f);
-
-        if (!hasReachedTarget && targetPosition != null)
-        {
-            float distance = Vector3.Distance(transform.position, targetPosition.position);
-
-            
-                ReachTarget();
-            
-        }
-    }
-    void ReachTarget()
-    {
-        hasReachedTarget = true;
-        Time.timeScale = 0f; // Pause the game
-
-        if (panelToOpen != null)
-        {
-            panelToOpen.SetActive(true);
-        }
     }
     public void OnMove(InputValue value)
     {
