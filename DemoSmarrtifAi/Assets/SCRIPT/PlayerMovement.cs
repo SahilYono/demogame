@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
 
@@ -7,33 +6,23 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float xRange = 8f;
     [SerializeField] float yRange = 4f;
 
-    Vector2 movement;
+  
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        float xoffset = movement.x * controlSpeed * Time.deltaTime;
-        float rawXPos = transform.localPosition.x + xoffset;
-        float clampedXPos = Mathf.Clamp(rawXPos, -xRange, xRange);
-
-        float yoffset = movement.y * controlSpeed * Time.deltaTime;
-        float rawYPos = transform.localPosition.y + yoffset;
-        float clampedYPos = Mathf.Clamp(rawYPos, -yRange, yRange);
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
 
 
-        transform.localPosition = new Vector3(clampedXPos,clampedYPos , 0f);
+        Vector3 move = new Vector3(x,0,  z);
+
+        transform.Translate(move * controlSpeed * Time.deltaTime);
+
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -xRange, xRange), transform.position.y, Mathf.Clamp(transform.position.z, -yRange, yRange));
+
+
     }
-    public void OnMove(InputValue value)
-    {
-       movement = value.Get<Vector2>();
-    }
+    
 
 
 }
