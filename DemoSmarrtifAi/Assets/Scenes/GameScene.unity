@@ -325,6 +325,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 661254666}
+  - component: {fileID: 661254668}
+  - component: {fileID: 661254667}
   m_Layer: 0
   m_Name: Player Ship
   m_TagString: Untagged
@@ -348,6 +350,51 @@ Transform:
   - {fileID: 1954268642}
   m_Father: {fileID: 1937661149}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &661254667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661254665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: 111741db33ab9aa4eadbbea317e4f339, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &661254668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661254665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 902c86368a9343145a46de3b35a08aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  controlSpeed: 10
+  xRange: 8
+  yRange: 4
 --- !u!1 &743603597
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,7 +914,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1937661149}
   - component: {fileID: 1937661148}
-  - component: {fileID: 1937661150}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -910,25 +956,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 76840807}
   - {fileID: 661254666}
+  - {fileID: 76840807}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &1937661150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1937661147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 902c86368a9343145a46de3b35a08aef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  controlSpeed: 10
-  xRange: 8
-  yRange: 4
 --- !u!1 &1954268641
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,18 +1001,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1954268642}
     m_Modifications:
     - target: {fileID: 2351753661504574839, guid: 136f1c5eb315f6e4bb9aea81e2c98482, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2351753661504574839, guid: 136f1c5eb315f6e4bb9aea81e2c98482, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2351753661504574839, guid: 136f1c5eb315f6e4bb9aea81e2c98482, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2351753661504574839, guid: 136f1c5eb315f6e4bb9aea81e2c98482, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1020,10 +1039,6 @@ PrefabInstance:
     - target: {fileID: 2351753661504574839, guid: 136f1c5eb315f6e4bb9aea81e2c98482, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2351753661504574839, guid: 136f1c5eb315f6e4bb9aea81e2c98482, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9081931162013253344, guid: 136f1c5eb315f6e4bb9aea81e2c98482, type: 3}
       propertyPath: m_Name
