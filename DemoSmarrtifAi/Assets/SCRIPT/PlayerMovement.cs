@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
 
@@ -6,23 +7,46 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float xRange = 8f;
     [SerializeField] float yRange = 4f;
 
-  
+    [SerializeField] float controlRollFactor = 10f;
+
+    Vector2 movement;
+
+    float startTime;
+
+    void Start()
+    {
+        startTime = Time.time;
+    }
+
 
     void Update()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-
-        Vector3 move = new Vector3(x,0,  z);
-
-        transform.Translate(move * controlSpeed * Time.deltaTime);
-
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -xRange, xRange), transform.position.y, Mathf.Clamp(transform.position.z, -yRange, yRange));
-
-
+        if (Time.time < startTime + 5f) return;
+        PlayerMove();
+        ProcessRotation();
     }
-    
+
+    void PlayerMove()
+    {
+        float xoffset = movement.x * controlSpeed * Time.deltaTime;
+        float rawXPos = transform.localPosition.x + xoffset;
+        float clampedXPos = Mathf.Clamp(rawXPos, -xRange, xRange);
+
+        float yoffset = movement.y * controlSpeed * Time.deltaTime;
+        float rawYPos = transform.localPosition.y + yoffset;
+        float clampedYPos = Mathf.Clamp(rawYPos, -yRange, yRange);
 
 
+        transform.localPosition = new Vector3(clampedXPos, clampedYPos, 0f);
+    }
+
+    public void OnMove(InputValue value)
+    {
+        movement = value.Get<Vector2>();
+    }
+    void ProcessRotation()
+    {
+        Quaternion targetRotation = Quaternion.Euler(controlRollFactor * movement.y, 0f, -controlRollFactor*movement.x);
+        transform.localRotation = targetRotation;
+    }
 }
