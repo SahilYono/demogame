@@ -4,6 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [SerializeField] float controlSpeed = 10f;
+    [SerializeField] float rotationSpeed = 4f;
     [SerializeField] float xRange = 8f;
     [SerializeField] float yRange = 4f;
 
@@ -21,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (Time.time < startTime + 5f) return;
+        if (Time.time < startTime + 7f) return;
         PlayerMove();
         ProcessRotation();
     }
@@ -46,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void ProcessRotation()
     {
-        Quaternion targetRotation = Quaternion.Euler(controlRollFactor * movement.y, 0f, -controlRollFactor*movement.x);
-        transform.localRotation = targetRotation;
+        Quaternion targetRotation = Quaternion.Euler(controlRollFactor * movement.y, 0f, -controlRollFactor * movement.x);
+        transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 }
