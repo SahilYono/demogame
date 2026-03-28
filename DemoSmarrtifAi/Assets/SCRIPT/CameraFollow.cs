@@ -2,24 +2,40 @@
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform player;
-    public Vector3 offset = new Vector3(0, 5, -10);
+     public Transform player;
+
+    private Vector3 playerStartPos;
+    private Vector3 cameraStartPos;
+
+    private float playerStartYRot;
+    private float cameraStartXRot;
+
+    void Start()
+    {
+        // Store initial positions
+        playerStartPos = player.position;
+        cameraStartPos = transform.position;
+
+        // Store initial rotations
+        playerStartYRot = player.eulerAngles.y;
+        cameraStartXRot = transform.eulerAngles.x;
+    }
 
     void LateUpdate()
     {
         if (player == null) return;
 
-        // Follow position
-        transform.position = player.position + offset;
+        // ---- POSITION DELTA ----
+        Vector3 positionDelta = player.position - playerStartPos;
+        transform.position = cameraStartPos + positionDelta;
 
-        // 👇 NEW: Look in player's forward direction (but stable)
-        Vector3 lookDirection = player.forward;
-        lookDirection.y = 0; // prevent up/down tilt
+        // ---- ROTATION DELTA (ONLY Y) ----
+        float currentPlayerY = player.eulerAngles.y;
+        float deltaY = currentPlayerY - playerStartYRot;
 
-        if (lookDirection != Vector3.zero)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
-        }
+        float finalY = deltaY;
+
+        // Keep X fixed, Z always 0
+        transform.rotation = Quaternion.Euler(cameraStartXRot, finalY, 0f);
     }
 }

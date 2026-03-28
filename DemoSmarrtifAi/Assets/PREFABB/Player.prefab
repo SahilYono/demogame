@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7799215867681054367}
   - component: {fileID: 1413023135461508061}
   m_Layer: 0
-  m_Name: 1.2
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,7 +108,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
