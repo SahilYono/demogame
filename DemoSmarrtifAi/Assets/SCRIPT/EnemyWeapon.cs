@@ -5,27 +5,50 @@ public class EnemyWeapon : MonoBehaviour
     [SerializeField] GameObject laser;
     [SerializeField] Transform targetpoint;
     [SerializeField] Transform player;
+    [SerializeField] float leadAmount = 2f; // Adjust this to lead the shot
 
-    bool isFirings = false;
+    bool isFiring = false;
+    private Vector3 lastPlayerPosition;
+    private Vector3 playerVelocity;
+
+    private void Start()
+    {
+        if (player != null)
+        {
+            lastPlayerPosition = player.position;
+        }
+    }
 
     private void Update()
     {
+        CalculatePlayerVelocity();
         ProcessFiring();
         MoveTargetPoint();
         AimLaser();
     }
 
+    void CalculatePlayerVelocity()
+    {
+        if (player != null)
+        {
+            playerVelocity = (player.position - lastPlayerPosition) / Time.deltaTime;
+            lastPlayerPosition = player.position;
+        }
+    }
+
     void ProcessFiring()
     {
         var emissionModule = laser.GetComponent<ParticleSystem>().emission;
-        emissionModule.enabled = isFirings;
+        emissionModule.enabled = isFiring;
     }
 
     void MoveTargetPoint()
     {
         if (player != null)
         {
-            targetpoint.position = player.position;
+            // Predict where the player will be
+            Vector3 predictedPosition = player.position + (playerVelocity * leadAmount);
+            targetpoint.position = predictedPosition;
         }
     }
 
@@ -40,7 +63,7 @@ public class EnemyWeapon : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            isFirings = true;
+            isFiring = true;
         }
     }
 
@@ -48,8 +71,9 @@ public class EnemyWeapon : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            isFirings = false;
+            isFiring = false;
         }
+
     }
 
 
