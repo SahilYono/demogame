@@ -26,7 +26,7 @@ public class enemy : MonoBehaviour
 
     private void ProcessHit()
     {
-        //healthAmount--;
+        //healthAmount--;nnnn
        /* if (healthAmount <= 0)
         {
             Instantiate(DestroVFX, transform.position, Quaternion.identity);
