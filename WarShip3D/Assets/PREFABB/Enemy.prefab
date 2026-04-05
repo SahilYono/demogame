@@ -26,13 +26,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525551894717955245}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.007465732, y: -0.048951894, z: -0.00062203227, w: 0.99877304}
-  m_LocalPosition: {x: 6.8228984, y: 0.0012290598, z: -0.39513344}
+  m_LocalRotation: {x: -0.05283086, y: -0.06487932, z: -0.26330748, w: 0.96107686}
+  m_LocalPosition: {x: 7.4, y: 0, z: -0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8292968173028404745}
-  m_LocalEulerAnglesHint: {x: -0.858, y: -5.612, z: -0.029}
+  m_LocalEulerAnglesHint: {x: -7.8, y: -5, z: -30.26}
 --- !u!114 &6436967912002288805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   laser: {fileID: 324542581237051147}
   targetpoint: {fileID: 796635216794010924}
   player: {fileID: 0}
-  leadAmount: 0.5
+  leadAmount: 0.3
 --- !u!65 &5026293048799567168
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -68,7 +68,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 18.31, y: 25.4, z: 83.7}
+  m_Size: {x: 21.6, y: 27.9, z: 99.9}
   m_Center: {x: 0, y: 0, z: 49.5}
 --- !u!1 &2661491428085694193
 GameObject:
@@ -200,8 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9334b258129672440b5dc4475c4b8ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemy
-  healthAmount: 2
-  scoreValue: 10
+  healthAmount: 5
+  scoreValue: 50
   DestroVFX: {fileID: 2746586962202190529, guid: 9e042a8efa3661a49ac21b9a29d202f2, type: 3}
   healAmountMax: 1
 --- !u!65 &7360258663031543368
@@ -366,6 +366,14 @@ PrefabInstance:
     - target: {fileID: 6802447244082142407, guid: a33db6412a171544f90d6ad1698b0dc9, type: 3}
       propertyPath: m_Name
       value: EnemyFireLAser
+      objectReference: {fileID: 0}
+    - target: {fileID: 7310805968912426196, guid: a33db6412a171544f90d6ad1698b0dc9, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7310805968912426196, guid: a33db6412a171544f90d6ad1698b0dc9, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
